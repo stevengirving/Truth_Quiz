@@ -23,26 +23,19 @@ questions = (
     (r'3 == 3 and (not ("testing" == "testing" or "Python" == "Fun"))') # False
     )
 
-# Define function to pull question from `questions`
-    # Print the question
-    # Get user input for answer
-    # Compare Answer to Question
-    # Print Correct or Wrong
-
-def truth_questions():
-    correct = []
-    for question in questions:
-        print(f"{question}: True or False?")
-        answer = input("> ")
-        print(f"You wrote: {answer}")
-        truth = str(eval(question))
-        print(f"The answer was: {truth}")
-        if truth == answer:
-            print("You were right!")
-            correct.append("1")
-        else:
-            print("You were incorrect!")
-            correct.append("0")
-        print("---")
-    print("You got", correct.count("1"), "of", len(correct), "correct!")
+correct = []
+for question in questions:
+    print(f"{question}: True or False?")
+    answer = input("> ")
+    print(f"You wrote: {answer}")
+    truth = str(eval(question))
+    print(f"The answer was: {truth}")
+    if truth.lower() == answer.lower():
+        print("You were right!")
+        correct.append("1")
+    else:
+        print("You were incorrect!")
+        correct.append("0")
+    print("---")
+print("You got", correct.count("1"), "of", len(correct), "correct!")
 
